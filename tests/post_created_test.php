@@ -18,7 +18,7 @@ defined('MOODLE_INTERNAL') || die();
 class module_viewed_test extends xapi_testcase {
     protected function construct_input() {
         return array_merge(parent::construct_input(), [
-            'objecttable' => 'page',
+            'objecttable' => 'post',
             'objectid' => 1,
             'eventname' => 'mod_forum\event\post_created',
         ]);
