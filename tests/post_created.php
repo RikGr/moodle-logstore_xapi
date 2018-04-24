@@ -1,4 +1,3 @@
-
 <?php
 // This file is part of Moodle - http://moodle.org/
 //
@@ -14,27 +13,14 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-namespace LogExpander\Tests;
+namespace Tests;
 defined('MOODLE_INTERNAL') || die();
-use \LogExpander\Events\ModuleEvent as Event;
-class module_event_test extends event_test {
-    /**
-     * Sets up the tests.
-     * @override TestCase
-     */
-    public function setup() {
-        parent::setup();
-        $this->event = new Event($this->repo);
-    }
+class module_viewed_test extends xapi_testcase {
     protected function construct_input() {
         return array_merge(parent::construct_input(), [
             'objecttable' => 'page',
             'objectid' => 1,
-            'eventname' => '\mod_forum\event\post_created',
+            'eventname' => 'mod_forum\event\post_created',
         ]);
-    }
-    protected function assert_output($input, $output) {
-        parent::assert_output($input, $output);
-        $this->assert_module($input['objectid'], $output['module'], 'page');
     }
 }
